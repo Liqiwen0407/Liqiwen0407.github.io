@@ -60,7 +60,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-03-11 20:23:55',
+  postUpdate: '2025-03-13 15:20:53',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -299,47 +299,21 @@ count: 左移的位数。
 
 
 示例:
-1unsigned char result = _crol ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/11/28/STC51/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/11/28/STC51/" title="【51单片机】基于普中科技HC6800-EM3 V3.0开发板的51单片机学习记录">未读</a></div><a class="article-title" href="/2024/11/28/STC51/" title="【51单片机】基于普中科技HC6800-EM3 V3.0开发板的51单片机学习记录">【51单片机】基于普中科技HC6800-EM3 V3.0开发板的51单片机学习记录</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">Created</span><time datetime="2024-11-28T02:15:29.199Z" title="Created 2024-11-28 10:15:29" time="2024-11-28 10:15:29">2024-11-28</time><time class="time_hidden" datetime="2025-03-11T12:23:47.656Z" title="Updated 2025-03-11 20:23:47" time="2025-03-11 20:23:47">2025-03-11</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>嵌入式</span></a></span></div><div class="content">普中科技HC6800-EM3理论知识中断中断简单的来说就是在主程序执行过程中突然有人叫CPU紧急去做另外一件事。
+1unsigned char result = _crol ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/11/28/STC51/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/11/28/STC51/" title="【51单片机】基于普中科技HC6800-EM3 V3.0开发板的51单片机学习记录">未读</a></div><a class="article-title" href="/2024/11/28/STC51/" title="【51单片机】基于普中科技HC6800-EM3 V3.0开发板的51单片机学习记录">【51单片机】基于普中科技HC6800-EM3 V3.0开发板的51单片机学习记录</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">Created</span><time datetime="2024-11-28T02:15:29.199Z" title="Created 2024-11-28 10:15:29" time="2024-11-28 10:15:29">2024-11-28</time><time class="time_hidden" datetime="2025-03-13T07:20:03.406Z" title="Updated 2025-03-13 15:20:03" time="2025-03-13 15:20:03">2025-03-13</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>嵌入式</span></a></span></div><div class="content">普中科技HC6800-EM3理论知识周期在51单片机中存在时钟周期、状态周期、机器周期、指令周期
+
+时钟周期: 时钟周期也称振荡周期或晶振周期，即晶振在单位时间发出的脉冲数，在一般情况下使用外部晶振源，在本套单片机中提供了11.0592MHz、12MHz、24MHz三个晶振可供选择。
+状态周期: 在8051单片机中将两个时钟周期定义为一个状态周期。
+机器周期: 在计算机中往往将一条指令的执行过程划分成多个阶段，其中完成一个阶段的操作所需的时间成为机器周期，在8051系列单片机中一个机器周期 &#x3D; 12个时钟周期。
+指令周期: 完成一条指令所需的时间。在STC单片机下载程序中有12T和6T的选择，在12T模式下指令周期 &#x3D; 12个时钟周期，在6T模式下指令周期 &#x3D; 6个时钟周期。此选项会影响串口的波特率。
+
+中断中断简单的来说就是在主程序执行过程中突然有人叫CPU紧急去做另外一件事。
 
 在基本型8051单片机中存在5个中断源分别是外部中断：INT0、INT1和定时计数器中断：T0、T1以及串口中断。
 其中断的启用与否由内部特殊寄存器IE控制
 
 
 
-IE位(中断使能寄存器)
-7
-6
-5
-4
-3
-2
-1
-0
-
-
-
-字节地址：A8H
-EA
--
--
-ES
-ET1
-EX1
-ET0
-EX0
-
-
-
-EX0: 外部中断0使能，EX0 &#x3D; 1，允许外部中断0中断，EX0 &#x3D; 0，禁止外部中断0中断。
-
-ET0: T0溢出中断使能，ET0 &#x3D; 1，允许T0中断，ET0 &#x3D; 0，禁止T0中断。
-
-EX1: 外部中断1使能，EX1 &#x3D; 1，允许外部中断1中断，EX1 &#x3D; 0，禁止外部中断1中断。
-
-ET1: T1溢出中断使能，ET1 &#x3D; 1 ，允许T1中断，ET1 &#x3D; 0，禁止T1中断。
-
-E  S: 串行中断使能，ES &#x3D; 1，允许串行口中断，ES &#x3D; 0 ，禁止串行口中断。
- ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/11/27/hello-world/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/11/27/hello-world/" title="Hello World">未读</a></div><a class="article-title" href="/2024/11/27/hello-world/" title="Hello World">Hello World</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">Created</span><time datetime="2024-11-27T13:35:41.056Z" title="Created 2024-11-27 21:35:41" time="2024-11-27 21:35:41">2024-11-27</time><time class="time_hidden" datetime="2024-11-27T13:35:41.056Z" title="Updated 2024-11-27 21:35:41" time="2024-11-27 21:35:41">2024-11-27</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+IE位(中断 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/11/27/hello-world/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/11/27/hello-world/" title="Hello World">未读</a></div><a class="article-title" href="/2024/11/27/hello-world/" title="Hello World">Hello World</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">Created</span><time datetime="2024-11-27T13:35:41.056Z" title="Created 2024-11-27 21:35:41" time="2024-11-27 21:35:41">2024-11-27</time><time class="time_hidden" datetime="2024-11-27T13:35:41.056Z" title="Updated 2024-11-27 21:35:41" time="2024-11-27 21:35:41">2024-11-27</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
 
 More info: Writing
